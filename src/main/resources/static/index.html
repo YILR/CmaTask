@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <link rel="stylesheet" href="webjars/bootstrap/4.5.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="webjars/noty/3.1.4/demo/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="webjars/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="webjars/noty/3.1.4/lib/noty.css"/>
+    <link rel="stylesheet" href="webjars/datetimepicker/2.5.20-1/jquery.datetimepicker.css">
+
+    <script type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="webjars/bootstrap/4.5.3/js/bootstrap.min.js" defer></script>
+    <script type="text/javascript" src="webjars/datatables/1.10.21/js/jquery.dataTables.min.js" defer></script>
+    <script type="text/javascript" src="webjars/datatables/1.10.21/js/dataTables.bootstrap4.min.js" defer></script>
+    <script type="text/javascript" src="webjars/noty/3.1.4/lib/noty.min.js" defer></script>
+    <script type="text/javascript" src="webjars/datetimepicker/2.5.20-1/build/jquery.datetimepicker.full.min.js" defer></script>
+    <script type="text/javascript" src="js/main.js" defer></script>
+    <script type="text/javascript" src="js/student.js" defer></script>
+</head>
+<body>
+<div class="jumbotron pt-4">
+    <div class="container">
+        <h3 class="text-center">Студенты</h3>
+        <table class="table table-striped" id="datatable">
+            <thead>
+            <tr>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Дата рождения</th>
+                <th>Группа</th>
+                <th></th>
+            </tr>
+            </thead>
+        </table>
+        <button class="btn btn-primary" onclick="add()">
+            <span class="fa fa-plus"></span>
+            Добавить
+        </button>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" id="editRow">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modalTitle"></h4>
+                <button type="button" class="close" data-dismiss="modal" onclick="closeNoty()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="detailsForm">
+                    <input type="hidden" id="id" name="id">
+
+                    <div class="form-group">
+                        <label for="lastname" class="col-form-label">
+                            Фамилия
+                        </label>
+                        <input class="form-control" id="lastname" name="lastname" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstname" class="col-form-label">
+                            Имя
+                        </label>
+                        <input class="form-control" id="firstname" name="firstname" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="middlename" class="col-form-label">
+                            Отчество
+                        </label>
+                        <input class="form-control" id="middlename" name="middlename" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date" class="col-form-label">
+                            Дата рождения
+                        </label>
+                        <input class="form-control" id="date" name="date" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="group" class="col-form-label">
+                            Группа
+                        </label>
+                        <input type="text" class="form-control" id="group" name="group">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeNoty()">
+                    <span class="fa fa-close"></span>
+                    Отменить
+                </button>
+                <button type="button" class="btn btn-primary" onclick="save()">
+                    <span class="fa fa-check"></span>
+                    Сохранить
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
